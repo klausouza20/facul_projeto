@@ -15,7 +15,7 @@
     die("Por favor, confirme que você não é um robô.");
     }
 
-    $secret = '6LdBxW0rAAAAAKQsxFGequQ5QxTuZh444aGcVl61';
+    $secret = getenv('RECAPTCHA_SECRET_KEY');
     $ip = $_SERVER['REMOTE_ADDR'];
 
     $response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=$secret&response=$recaptcha&remoteip=$ip");
@@ -47,10 +47,6 @@
             echo "<span style='color:red;''>Desconectado</span><br><br>";
             echo "Email ou senha inválidos.";
         }
-        // foreach(new TableRows(new
-        // RecursiveArrayIterator($stmt->fetchAll()))as $k->$v){
-        //     echo $v;
-        // 
     
     }
 
